@@ -1,0 +1,514 @@
+/* =====================
+   Global Design System
+===================== */
+html {
+  min-height: 100%;
+  background-color: var(--bs-body-bg);
+}
+/* =====================
+   Fix select caret (^) overlap in RTL
+===================== */
+
+select.form-select {
+  padding-right: 0.75rem; /* متن سمت راست */
+  padding-left: 2.4rem; /* جا برای فلش سمت چپ */
+  background-position: left 0.9rem center; /* فلش به چپ */
+  background-size: 14px 14px;
+}
+
+/* بعضی مرورگرها مخصوصاً موبایل */
+select.form-select:focus {
+  background-position: left 0.9rem center;
+}
+
+/* اگر select داخل کارت/فیلترها بود و عرض کم بود */
+select.form-select {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+body,
+#root {
+  min-height: 100%;
+  background-color: transparent;
+}
+
+:root {
+  --radius-xl: 1.4rem;
+  --radius-lg: 1rem;
+  --radius-md: 0.75rem;
+
+  --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 18px 45px rgba(0, 0, 0, 0.14);
+
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.35s ease;
+}
+
+body {
+  direction: rtl;
+  text-align: right;
+  font-family: "Vazirmatn", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Arial;
+  background: linear-gradient(
+    180deg,
+    var(--bs-body-bg) 0%,
+    var(--bs-tertiary-bg) 100%
+  );
+}
+
+/* =====================
+   Navbar
+===================== */
+
+.navbar {
+  backdrop-filter: blur(12px);
+  background: rgba(33, 37, 41, 0.92) !important;
+}
+
+.navbar-brand {
+  letter-spacing: 0.5px;
+}
+
+/* =====================
+   Cards (GLOBAL)
+===================== */
+
+.card {
+  border: none;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--transition-normal),
+    box-shadow var(--transition-normal);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* =====================
+   Hero Section (Home)
+===================== */
+
+.hero {
+  background: linear-gradient(
+    135deg,
+    rgba(13, 110, 253, 0.12),
+    rgba(13, 110, 253, 0.03)
+  );
+  border-radius: calc(var(--radius-xl) + 0.5rem);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    circle at top left,
+    rgba(255, 255, 255, 0.4),
+    transparent 40%
+  );
+  pointer-events: none;
+}
+
+/* =====================
+   Course Cards
+===================== */
+
+.course-img {
+  height: 190px;
+  object-fit: cover;
+  border-top-left-radius: var(--radius-xl);
+  border-top-right-radius: var(--radius-xl);
+}
+
+.details-img {
+  height: 280px;
+  object-fit: cover;
+  border-top-left-radius: var(--radius-xl);
+  border-top-right-radius: var(--radius-xl);
+}
+
+.rating {
+  letter-spacing: 2px;
+  color: #f5a623;
+}
+
+/* =====================
+   Buttons
+===================== */
+
+.btn {
+  border-radius: var(--radius-lg);
+  transition: transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  box-shadow: 0 8px 18px rgba(13, 110, 253, 0.35);
+}
+
+.btn-success {
+  box-shadow: 0 8px 18px rgba(25, 135, 84, 0.35);
+}
+
+/* =====================
+   Forms
+===================== */
+
+.form-control,
+.form-select,
+textarea {
+  border-radius: var(--radius-md);
+  border-width: 1.5px;
+  padding: 0.6rem 0.75rem;
+  transition: border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.form-control:focus,
+.form-select:focus,
+textarea:focus {
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+}
+
+/* =====================
+   Tables
+===================== */
+
+.table {
+  border-collapse: separate;
+  border-spacing: 0 0.5rem;
+}
+
+.table thead th {
+  border: none;
+  font-weight: 600;
+  color: var(--bs-secondary-color);
+}
+
+.table tbody tr {
+  background: var(--bs-body-bg);
+  box-shadow: var(--shadow-soft);
+}
+
+.table tbody tr td {
+  border: none;
+  padding: 0.8rem;
+}
+
+.table tbody tr:first-child td:first-child {
+  border-top-right-radius: var(--radius-md);
+  border-bottom-right-radius: var(--radius-md);
+}
+
+.table tbody tr:last-child td:last-child {
+  border-top-left-radius: var(--radius-md);
+  border-bottom-left-radius: var(--radius-md);
+}
+
+/* =====================
+   Alerts
+===================== */
+
+.alert {
+  border: none;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+/* =====================
+   Dark Mode – FINAL
+===================== */
+
+[data-bs-theme="dark"] {
+  --bs-body-bg: #0e1016;
+  --bs-body-color: #e6e8ee;
+  --bs-tertiary-bg: #141827;
+  --bs-secondary-color: #9aa0b5;
+}
+
+/* بک‌گراند کل صفحه */
+[data-bs-theme="dark"] html {
+  background: linear-gradient(180deg, #0e1016 0%, #141827 100%);
+}
+
+[data-bs-theme="dark"] body {
+  background: transparent;
+}
+
+/* =====================
+   Small UX Details
+===================== */
+
+.badge {
+  border-radius: 999px;
+  padding: 0.45em 0.7em;
+}
+
+/* =====================
+   Course Card Enhancements
+===================== */
+
+.course-card {
+  cursor: pointer;
+}
+
+.course-card:hover .course-img {
+  transform: scale(1.06);
+}
+
+.course-img-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.course-img {
+  transition: transform 0.5s ease;
+}
+
+.course-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: linear-gradient(135deg, #ff4d4d, #ff0000);
+  color: #fff;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  animation: floatBadge 2.5s ease-in-out infinite;
+}
+
+@keyframes floatBadge {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.course-meta {
+  font-size: 0.85rem;
+  color: var(--bs-secondary-color);
+}
+
+.course-desc {
+  font-size: 0.9rem;
+  color: var(--bs-body-color);
+  opacity: 0.85;
+}
+
+.course-price {
+  font-weight: 700;
+  color: var(--bs-primary);
+}
+.navbar-nav .nav-link {
+  position: relative;
+}
+
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 4px;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transition: transform 0.25s ease;
+}
+
+.navbar-nav .nav-link.active::after,
+.navbar-nav .nav-link:hover::after {
+  transform: scaleX(0.7);
+}
+.page-enter {
+  animation: pageFade 0.5s ease forwards;
+}
+
+@keyframes pageFade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.page-transition {
+  animation: pageEnter 0.6s ease;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* =====================
+   Scroll Reveal Animation
+===================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px) scale(0.96);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* =====================
+   Advanced Hover
+===================== */
+
+.course-card {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+}
+
+.course-img {
+  transition: transform 0.6s ease;
+}
+
+.course-card:hover .course-img {
+  transform: scale(1.1);
+}
+
+/* =====================
+   Floating Badge
+===================== */
+
+.course-badge {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+footer {
+  opacity: 0.9;
+  padding: 2rem 0;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.08));
+}
+
+[data-bs-theme="dark"] footer {
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.35));
+}
+/* جلوگیری از سفید شدن accidental */
+* {
+  scroll-margin-bottom: 2rem;
+}
+
+::selection {
+  background: rgba(13, 110, 253, 0.25);
+}
+/* =====================
+   Mobile-friendly Filters Grid
+===================== */
+
+.filters-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+.filters-item {
+  min-width: 0; /* جلوگیری از بیرون زدن */
+}
+
+.filters-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.filters-actions .btn {
+  width: 100%;
+}
+
+/* موبایل‌های کمی بزرگ‌تر: دو ستونه */
+@media (min-width: 480px) {
+  .filters-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* سرچ تمام عرض */
+  .filters-search {
+    grid-column: 1 / -1;
+  }
+
+  /* دکمه‌ها تمام عرض */
+  .filters-actions {
+    grid-column: 1 / -1;
+  }
+}
+
+/* تبلت و بالاتر: 3 ستونه */
+@media (min-width: 768px) {
+  .filters-grid {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+
+  .filters-search {
+    grid-column: 1 / 2;
+  }
+
+  .filters-actions {
+    grid-column: 1 / -1;
+    grid-template-columns: 180px 180px;
+    justify-content: end;
+  }
+}
+/* =====================
+   Hard fix: custom caret for selects
+===================== */
+
+.select-wrap {
+  position: relative;
+}
+
+.select-wrap::after {
+  content: "▾";
+  position: absolute;
+  left: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  opacity: 0.75;
+  font-size: 0.9rem;
+}
+
+.select-wrap > select.form-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-left: 2.6rem; /* جا برای فلش خودمون */
+  background-image: none; /* فلش bootstrap حذف */
+}
